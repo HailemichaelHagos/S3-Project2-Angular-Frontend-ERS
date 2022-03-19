@@ -2,9 +2,9 @@ version: 0.2
 
 env: 
     Variables:
-    CACHE_CONTROL: "86400"
-    S3_BUCKET: {{s3_bucket_url}}
-    BUILD_FOLDER: "dist"
+        CACHE_CONTROL: "86400"
+        S3_BUCKET: {{s3_bucket_url}}
+        BUILD_FOLDER: "dist"
 phases:
   install: 
     runtime-version:
