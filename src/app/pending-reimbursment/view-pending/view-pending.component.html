@@ -1,0 +1,26 @@
+<div class="container">
+<h3 style="color: brown;"> ALL PENDING REQUEST</h3>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>reimId</th>
+            <th>ReqEmpId</th>
+            <th>Amount</th>
+            <th>Date of Request</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pending of allPendings">
+          <td>{{ pending.reimbursementId }}</td>
+            <td>{{ pending.requestingEmployeeId }}</td>
+            <td>{{ pending.reimbursementAmount }}</td>
+            <td>{{ pending.dateOfRequest }}</td>
+            
+        </tr>
+    </tbody>
+</table>
+</div>
+

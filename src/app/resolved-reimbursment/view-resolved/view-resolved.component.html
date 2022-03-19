@@ -1,0 +1,25 @@
+
+<div class="container">
+<h3 style="color: brown;"> ALL RESOLVED REQUEST</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>reimId</th>
+            <th>ReqEmpId</th>
+            <th>Amount</th>
+             <th>Approved/Deny</th> 
+            <th>Date of Request</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let solved of allSolved">
+          <td>{{ solved.reimbursementId }}</td>
+            <td>{{ solved.requestingEmployeeId }}</td>
+            <td>{{ solved.reimbursementAmount }}</td>
+             <td>{{ solved.requestApproved }}</td> 
+             <td>{{ solved.dateResolved }}</td> 
+      
+        </tr>
+    </tbody>
+</table>
+</div>

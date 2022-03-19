@@ -1,0 +1,56 @@
+<style type="text/css">
+  nav{
+    text-align: center;
+  }
+  .navbar {
+   font-size: large;
+   font-weight: bold;
+
+  }
+  div{
+    text-align: right;
+  }
+  .nav-item li{
+    display: inline-flex;
+  font-size: 20px;
+  padding: 20px;
+  }
+ 
+
+  </style>
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      
+      <ul class="nav-item" *ngIf="isLoggedIn()==true && getRole()=='employee'">
+        <li><a class="nav-link" routerLink="employee-http-crud">EMPLOYEE HOME PAGE</a></li>
+        <li><a class="nav-link" routerLink="show-http-reimb-expense"> <button type="button" class="btn btn-primary" >Submit Request</button></a></li>
+        <li><a class="nav-link" routerLink="view-all-pending-request"> <button type="button" class="btn btn-info" >View Pending Request</button></a></li>
+        <li><a class="nav-link" routerLink="view-all-solved-request"> <button type="button" class="btn btn-warning" >View Resolved Request</button></a></li>
+        <li> <a class="nav-link" routerLink="employee-http-crud"> <button type="button" class="btn btn-primary" >View info</button></a></li>
+  
+      </ul>
+
+          <ul class="nav-item" *ngIf="isLoggedIn()==true && getRole()=='manager'">
+            <li><a class="nav-link" routerLink="view-http-employees">MANAGER HOME PAGE</a>
+            <li><a class="nav-link" routerLink="view-http-employees"><button type="button" class="btn btn-info" >All Employees</button></a></li>
+            <li><a class="nav-link" routerLink="view-all-pending-request"><button type="button" class="btn btn-success" >Approve/Deny</button></a></li>
+            <li><a class="nav-link" routerLink="view-all-pending-request"> <button type="button" class="btn btn-info" >All Pending</button></a></li>
+            <li><a class="nav-link" routerLink="view-all-solved-request">  <button type="button" class="btn btn-warning" >All Resolved</button></a></li>
+            
+           
+          </ul>
+
+      <li class="nav-item" *ngIf="isLoggedIn()==false">
+        <br>
+        <div style="font-size: xx-large; color: chocolate;">Welcome to Employee Reimbursment System! </div>
+    <br>
+     <a class="nav-link" routerLink="login">Login</a> 
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()==true">
+        <a class="nav-link" routerLink="logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

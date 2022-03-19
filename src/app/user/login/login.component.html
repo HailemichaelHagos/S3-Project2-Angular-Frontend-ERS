@@ -1,0 +1,74 @@
+
+<style type="text/css">
+    .card-header {
+     margin:10px auto;
+     width:450px;
+     font-size: xx-large;
+     text-align: center;
+     font-weight:bold;
+   
+    }
+    .mb-3 {
+     margin:0 auto;
+     width:300px;
+    }
+    .card-footer {
+     margin:0 auto;
+     width:450px;
+     text-align: center;
+    
+    }
+    .btn{
+        font-size: large;
+        font-weight: bold;
+        color: white;
+    }
+    .card-header .div{
+    font-size: small;
+    }
+ 
+    </style>
+
+
+<form  (ngSubmit)="validateUser()">
+    <div class="card-header text-blue">USERS LOGIN PAGE<div style="font-size: large; color: red;">{{ errorMessage }}</div></div>
+        <div class="card-body">
+            <div style="text-align:center; min-width: 0pt;"><img  src="/assets/images/login.png" alt="login" class="center"></div>
+
+                <div class="mb-3 mt-1">
+                    <label for="username" class="form-label">Username:</label>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="username" 
+                    placeholder="Enter username" 
+                    name="username"
+                    [(ngModel)]="newUser.userName">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        id="password" 
+                        placeholder="Enter password" 
+                        name="password"
+                        [(ngModel)]="newUser.password">
+                    </div>
+                    <div class="mb-3 mt-3">
+                    <label for="role" class="form-label">Role:</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="role" 
+                        placeholder="Enter role" 
+                        name="role"
+                        [(ngModel)]="newUser.role">
+                    </div>   
+        </div>
+        <div class="card-footer ">
+            <button type="submit" class="btn btn-primary">
+                LOGIN
+            </button>
+        </div>
+    </form>
