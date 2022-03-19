@@ -8,7 +8,7 @@ env:
 phases:
   install:
     runtime-versions:
-        nodejs: 16
+        nodejs: 10
     commands:
         - echo Installing source NPM dependencies...
         - npm install
@@ -18,7 +18,7 @@ phases:
         - echo Build started 
         - ng build
 artifacts:
-    files:
+    files: 
         - '**/*'
     base-directory: 'dist*'
     discard-paths: yes
