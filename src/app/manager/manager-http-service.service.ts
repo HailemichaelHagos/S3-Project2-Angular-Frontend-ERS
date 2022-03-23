@@ -15,12 +15,12 @@ export class ManagerHttpServiceService {
 
   fetchAllEmployees(): Observable<Employee[]>{
     // we need to work with HttpClient to consume an endpoint
-    return this.http.get<Employee[]>("http://localhost:4040/managers/fetchAllEmp");
+    return this.http.get<Employee[]>("http://localhost:4444/api/employees");
   }
 
-  deleteEmployee(empId: number): Observable<Employee>{
-    return this.http.delete<Employee>("http://localhost:4040/employees/updateEmp/"+empId);
-  }
+  // deleteEmployee(empId: number): Observable<Employee>{
+  //   return this.http.delete<Employee>("http://localhost:4040/employees/updateEmp/"+empId);
+  // }
 
   addEmployee(employeeModel: Employee): Observable<Employee>{
     return this.http.post<Employee>("http://localhost:4040/employees/submit", JSON.stringify(employeeModel));

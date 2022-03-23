@@ -13,11 +13,11 @@ export class SolvedHttpServiceService {
   }
   constructor(private http: HttpClient) { }
   fetchAllSolved(): Observable<SolvedRequest[]>{
-    return this.http.get<SolvedRequest[]>("http://localhost:4040/managers/resolvedReq");
+    return this.http.get<SolvedRequest[]>("http://localhost:4444/api/all-resolved");
   }
   addSolved(pendingModel: SolvedRequest): Observable<SolvedRequest>{
 
-    return this.http.post<SolvedRequest>("http://localhost:4040/managers/viewAllReq/2",  JSON.stringify(pendingModel));
+    return this.http.post<SolvedRequest>("http://localhost:4444/api/all-resolved/approve-or-deny",  JSON.stringify(pendingModel));
 
   }
 }

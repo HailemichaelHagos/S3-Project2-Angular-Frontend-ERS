@@ -49,11 +49,11 @@ export class UserService {
 //  }
 
   validateEmployeeLogin(newUser: User): Observable<Employee>{
-    return this.http.get<Employee>("http://localhost:4040/employees/login/"+newUser.userName+"/"+newUser.password);
+    return this.http.get<Employee>("http://localhost:4444/api/employees/login/"+newUser.userName+"/"+newUser.password);
   }
 
   validateManagerLogin(newUser: User): Observable<Manager>{
-    return this.http.get<Manager>("http://localhost:4040/managers/login/"+newUser.userName+"/"+newUser.password);
+    return this.http.get<Manager>("http://localhost:4444/api/manager/login/"+newUser.userName+"/"+newUser.password);
 
   }
   
