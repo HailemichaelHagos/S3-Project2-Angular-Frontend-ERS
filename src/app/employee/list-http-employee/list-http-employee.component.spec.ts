@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppComponent } from 'src/app/app.component';
 
 import { ListHttpEmployeeComponent } from './list-http-employee.component';
 
@@ -21,5 +22,13 @@ describe('ListHttpEmployeeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+
+  it('should create label', () => {
+    const fixture = TestBed.createComponent(ListHttpEmployeeComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('div h3')?.textContent).toContain('EMPLOYEES INFORMATION');
   });
 });

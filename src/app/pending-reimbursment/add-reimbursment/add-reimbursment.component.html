@@ -1,0 +1,78 @@
+
+<div class="container">
+    <h3 style="color: brown;">REIMBURSMENT REQUEST</h3>
+  
+    <div>
+        <button type="button" class="btn btn-success" (click)="toggleAddForm()">Submit Reimbursment Request</button>
+        <div class="card m-5" *ngIf="toggleAdd">
+            <div class="card-header bg-success text-white">Add Reimbursment</div>
+            <div class="card-body">
+                <form>
+  
+                       <div class="mb-3 mt-3">
+                        <label for="empId" class="form-label">Requesting empId:</label>
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="empId" 
+                          placeholder="Enter expense Id" 
+                          name="requestingEmployeeId"
+                          [(ngModel)]="newExpense.requestingEmployeeId">
+                      </div>
+                      <div class="mb-3 mt-3">
+                        <label for="amount" class="form-label">Reimbursment Amount:</label>
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="amount" 
+                          placeholder="Enter expense amount" 
+                          name="reimbursementAmount"
+                          [(ngModel)]="newExpense.reimbursementAmount">
+                      </div>
+                     
+                  </form>
+            </div>
+            <div class="card-footer bg-success">
+                <button type="button" class="btn btn-light" (click)="addExpense()">
+                    SUBMIT
+                </button>
+            </div>
+        </div>
+  
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>RequestingEmployeeId</th>
+                <th>Amount</th>
+                <th>Request Approved</th>
+                <th>Date</th>
+                <th>Date Solved</th>
+                <th>Action</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let expense of allExpenses">
+                <td>{{ expense.requestingEmployeeId }}</td>
+                <td>{{ expense.reimbursementAmount }}</td>
+                <td>{{ expense.requestApproved }}</td>
+                <td>{{ expense.dateOfRequest }}</td>
+                <td>{{ expense.dateResolved }}</td>
+                <td>
+                    <button 
+                        type="button" 
+                        class="btn btn-primary"
+                        (click)="goToEditExpense(expense.requestingEmployeeId)">
+                        <i class="material-icons">Approve</i>
+                    </button>
+                </td>
+                 <td><button 
+                        type="button" 
+                        class="btn btn-danger" 
+                        (click)="deleteExpense(expense.requestingEmployeeId)"><i class="material-icons">Deny</i></button></td> 
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  

@@ -14,17 +14,8 @@ export class ViewHttpEmployeesComponent implements OnInit {
   toggleAdd: boolean = false;
 
   newEmployee: Employee = {
-  //   empId: 0,
-  //   password: "",
-  //  // email: "",
-  //   firstname: "",
-  //   lastname: "",
-  //   empContact: "",
-  //   empAddress: "",
-  //   empImageUrl: ""
 
   employeeId: 0,
-  //email: string,
   employeePassword: "",
   employeeFirstName: "",
  employeeLastName: "",
@@ -54,27 +45,6 @@ export class ViewHttpEmployeesComponent implements OnInit {
       this.toggleAdd = true;
     }
   }
-
-  
-  // toggleApproveRequestForm(){
-
-  // }
-
-  // toggleDenyRequestForm(){
-
-  // }
-  // toggleViewPendingForm(){
-
-  // }
-  // toggleViewResolvedForm(){
-
-  // }
-  // toggleViewSpecificForm(){
-
-  // }
-  // toggleViewEmployees(){
-  
-  // }
 
 
   goToEditEmployee(employeeId: number){

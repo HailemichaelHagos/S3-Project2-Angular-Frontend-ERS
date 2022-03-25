@@ -13,11 +13,11 @@ export class PendingHttpServiceService {
   }
   constructor(private http: HttpClient) { }
   fetchAllPendings(): Observable<PendingRequest[]>{
-    return this.http.get<PendingRequest[]>("http://localhost:4040/managers/viewAllReq/1");
+    return this.http.get<PendingRequest[]>("http://localhost:4444/api/all-pending");
   }
   addPending(pendingModel: PendingRequest): Observable<PendingRequest>{
 
-    return this.http.post<PendingRequest>("http://localhost:4040/managers/viewAllReq/2",  JSON.stringify(pendingModel));
+    return this.http.post<PendingRequest>(" http://localhost:4444/api/all-pending/submit-request", pendingModel);
 
   }
   }

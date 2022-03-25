@@ -7,15 +7,13 @@ import { Employee } from './employee.model';
   providedIn: 'root'
 })
 export class EmployeeHttpService {
-  submitRequest() {
-    throw new Error('Method not implemented.');
-  }
+ 
   // to work with HttpClient, we should include HttpClientModule in app.module.ts file
   constructor(private http: HttpClient) { }
 
   fetchAllEmployees(): Observable<Employee[]>{
     // we need to work with HttpClient to consume an endpoint
-    return this.http.get<Employee[]>(" http://localhost:4444/api/employees");
+    return this.http.get<Employee[]>(" http://localhost:4444/api/employees/");
   }
 
   deleteEmployee(empId: number): Observable<Employee>{
@@ -27,11 +25,14 @@ export class EmployeeHttpService {
   }
 
   updateEmployee(employeeModel: Employee): Observable<Employee>{
-    return this.http.put<Employee>("http://localhost:4444/api/employees/employee-update/", JSON.stringify(employeeModel));
+    return this.http.put<Employee>("http://localhost:4444/api/employees/employee-update", employeeModel);
   }
 
+  fetchEmployee(empId: number): Observable<Employee>{
+    return this.http.get<Employee>("http://localhost:4444/api/employees/"+empId);
+  }
   fetchAEmployee(empId: number): Observable<Employee>{
-    return this.http.get<Employee>("http://localhost:4444/api/employees/1"+empId);
+    return this.http.get<Employee>("http://localhost:4444/api/employees/"+empId);
   }
 
 

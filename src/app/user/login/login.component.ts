@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
           this.authService.loggedIn = true;
           this.authService.managerRole = true;
           this.authService.storeManagerUser(response);
-          this.router.navigate(['view-employees']);
+          //this.router.navigate(['view-employees']); // view-http-employees
+         this.router.navigate(['view-manager'])
         }
       })
     }

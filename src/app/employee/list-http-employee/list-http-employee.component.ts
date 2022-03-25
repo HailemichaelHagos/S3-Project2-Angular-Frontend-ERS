@@ -11,6 +11,8 @@ import { Employee } from '../employee.model';
 export class ListHttpEmployeeComponent implements OnInit {
 
   allEmployees: Employee[] = [];
+  oneEmployee: Employee[] = [];
+
   toggleAdd: boolean = false;
 
   newEmployee: Employee = {
@@ -28,7 +30,9 @@ export class ListHttpEmployeeComponent implements OnInit {
   constructor(private employeeHttpService: EmployeeHttpService, private router: Router) { }
  
   ngOnInit(): void {
-    this.loadAllEmployees();  
+    this.loadAllEmployees();
+
+      
   }
 
   loadAllEmployees(){
@@ -38,7 +42,7 @@ export class ListHttpEmployeeComponent implements OnInit {
      this.allEmployees = response;
     });
   }
-
+ 
   toggleAddForm(){
     if(this.toggleAdd){
       this.toggleAdd = false;
@@ -47,24 +51,10 @@ export class ListHttpEmployeeComponent implements OnInit {
     }
   }
  
-  submitRequest(){
- 
-      // will add some code......
-      this.loadAllEmployees();
-  }
-  viewPendingRequest(){
-
-  }
-  viewResolvedRequest(){
-
-  }
-  viewInfo(){
-
-  }
   
   goToEditEmployee(employeeId: number){
     this.router.navigate(['employee-http-update', employeeId]);
-    this.router.navigate(['employee-http-edit', employeeId]);
+    //this.router.navigate(['employee-http-edit', employeeId]);
   }
 
   deleteEmployee(employeeId: number){
@@ -92,3 +82,11 @@ export class ListHttpEmployeeComponent implements OnInit {
    })
   }
 }
+function employeeId(employeeId: any, number: any) {
+  throw new Error('Function not implemented.');
+}
+
+function id(id: any) {
+  throw new Error('Function not implemented.');
+}
+

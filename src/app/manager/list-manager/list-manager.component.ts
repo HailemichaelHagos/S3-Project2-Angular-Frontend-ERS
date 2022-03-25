@@ -1,7 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { ManagerHttpServiceService } from '../manager-http-service.service';
 import { Manager } from '../manager.model';
-import { ManagerService } from '../manager.service';
 
 @Component({
   selector: 'app-list-manager',
@@ -13,7 +13,8 @@ export class ListManagerComponent implements OnInit {
   allManagers: Manager[] = [];
   toggleAdd: boolean = false;
 
-  newManager: Manager = {
+  Manager = {
+
     managerId: 0,
     managerPassword: "",
     managerFirstName: "",
@@ -22,65 +23,32 @@ export class ListManagerComponent implements OnInit {
     managerAddress: "",
     managerImageUrl: ""
   }
+
+  constructor(private managerHttpServiceService: ManagerHttpServiceService, private router: Router) { }
  
-  constructor(private managerService: ManagerService, private router: Router) {
-   
-   }
-
-  oneManager: Manager = {
-    managerId: 101,
-    managerPassword:"sm22",
-    managerFirstName: "samia",
-    managerLastName: "johan",
-    managerContact: "samia@gmail",
-    managerAddress: "NewYork",
-    managerImageUrl: "https://images.unsplash.com/photo-1611676279444-5577698aa13c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-  };
-
-  
   ngOnInit(): void {
-    this.allManagers = this.managerService.fetchAllManagers();
+    this.loadManager();  
   }
 
-  ngOnDestroy(): void {
-      console.log("ngOnDestroy() called");
+  loadManager(){
+    this.managerHttpServiceService.fetchManager().subscribe((response: Manager[])=>{
+    //  the response that we receive here is an array of Employees
+     console.log(response);
+     this.allManagers = response;
+    });
+  }
+    
+  goToEditManager(managerId: number){
+    this.router.navigate(['manager-http-update', managerId]);
+    //this.router.navigate(['employee-http-edit', employeeId]);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("ngOnChanges() called");
+  deleteManager(managerId: number){
+   this.managerHttpServiceService.deleteManager(managerId).subscribe((response)=>{
+     console.log(response);
+     
+     this.loadManager();;
+   })
   }
-
-  toggleAddForm(){
-    if(this.toggleAdd){
-      this.toggleAdd = false;
-    }else{
-      this.toggleAdd = true;
-    }
-  }
-
-  goToEditManager(mngId: number){
-    this.router.navigate(['employee-update', mngId]);
-  }
-
-  deleteManager(mngId: number){
-   this.allManagers = this.managerService.deleteManager(mngId);
-  }
-
-  addManager(){
-    let addNewManager: Manager = {
-
-      managerId: 0,
-      managerPassword: this.newManager.managerPassword,
-      managerFirstName: this.newManager.managerFirstName,
-      managerLastName: this.newManager.managerLastName,
-      managerContact: this.newManager.managerContact,
-      managerAddress: this.newManager.managerAddress,
-      managerImageUrl: this.newManager.managerImageUrl
-
-    }
-
-    this.managerService.addManager(addNewManager);
-    this.allManagers = this.managerService.fetchAllManagers();
-  }
-
+  
 }

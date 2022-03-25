@@ -11,7 +11,7 @@ export class ReimbursementHttpService {
   constructor(private http: HttpClient) { }
 
   fetchAllExpenses(): Observable<Reimbursement[]>{
-    return this.http.get<Reimbursement[]>("http://localhost:4040/employees/pen-req/1");
+    return this.http.get<Reimbursement[]>("http://localhost:4444/api/all-pending");
   }
 
   deleteExpense(rmbId: number): Observable<Reimbursement>{
@@ -19,7 +19,7 @@ export class ReimbursementHttpService {
   }
 
   addExpense(expenseModel: Reimbursement): Observable<Reimbursement>{
-    return this.http.post<Reimbursement>("http://localhost:4040/employees/submit", JSON.stringify(expenseModel));
+    return this.http.post<Reimbursement>("http://localhost:4444/api/all-pending/submit-request", expenseModel);
   }
 
   updateExpense(expenseModel: Reimbursement): Observable<Reimbursement>{
@@ -27,6 +27,6 @@ export class ReimbursementHttpService {
   }
 
   fetchAExpense(rmbId: number): Observable<Reimbursement>{
-    return this.http.get<Reimbursement>("http://localhost:4040/employees/pen-req/"+rmbId);
+    return this.http.get<Reimbursement>("http://localhost:4444/api/all-pending/"+rmbId);
   }
 }

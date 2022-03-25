@@ -43,35 +43,33 @@
   <table class="table table-striped">
       <thead>
           <tr>
-              <th>RequestingEmployeeId</th>
-              <th>Amount</th>
-              <th>Request Approved</th>
-              <th>Date</th>
-              <th>Date Solved</th>
+            <th>reimId</th>
+            <th>ReqEmpId</th>
+            <th>Amount</th>
+            <th>Date of Request</th>
               <th>Action</th>
-              <th>Delete</th>
+ 
           </tr>
       </thead>
       <tbody>
           <tr *ngFor="let expense of allExpenses">
-              <td>{{ expense.requestingEmployeeId }}</td>
-              <td>{{ expense.reimbursementAmount }}</td>
-              <td>{{ expense.requestApproved }}</td>
-              <td>{{ expense.dateOfRequest }}</td>
-              <td>{{ expense.dateResolved }}</td>
+            <td>{{ expense.reimbursementId }}</td>
+            <td>{{ expense.requestingEmployeeId }}</td>
+            <td>{{ expense.reimbursementAmount }}</td>
+            <td>{{ expense.dateOfRequest }}</td>
               <td>
                   <button 
                       type="button" 
                       class="btn btn-primary"
                       (click)="goToEditExpense(expense.requestingEmployeeId)">
-                      <i class="material-icons">Approve</i>
+                      Approve
                   </button>
               </td>
                <td><button 
                       type="button" 
                       class="btn btn-danger" 
-                      (click)="deleteExpense(expense.requestingEmployeeId)"><i class="material-icons">Deny</i></button></td> 
+                      (click)="deleteExpense(expense.requestingEmployeeId)">Deny</button></td> 
           </tr>
       </tbody>
   </table>
-</div>
+</div> 

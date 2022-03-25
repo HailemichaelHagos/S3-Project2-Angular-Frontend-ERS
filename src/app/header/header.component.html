@@ -24,18 +24,18 @@
     <ul class="navbar-nav">
       
       <ul class="nav-item" *ngIf="isLoggedIn()==true && getRole()=='employee'">
-        <li><a class="nav-link" routerLink="employee-http-crud">EMPLOYEE HOME PAGE</a></li>
+        <li><a class="nav-link" routerLink="view-one-employee">EMPLOYEE HOME PAGE</a></li>
         <li><a class="nav-link" routerLink="show-http-reimb-expense"> <button type="button" class="btn btn-primary" >Submit Request</button></a></li>
         <li><a class="nav-link" routerLink="view-all-pending-request"> <button type="button" class="btn btn-info" >View Pending Request</button></a></li>
         <li><a class="nav-link" routerLink="view-all-solved-request"> <button type="button" class="btn btn-warning" >View Resolved Request</button></a></li>
         <li> <a class="nav-link" routerLink="employee-http-crud"> <button type="button" class="btn btn-primary" >View info</button></a></li>
-  
+        <li> <a class="nav-link" routerLink="upload-file"> <button type="button" class="btn btn-primary" >UploadFile</button></a></li>
       </ul>
 
           <ul class="nav-item" *ngIf="isLoggedIn()==true && getRole()=='manager'">
-            <li><a class="nav-link" routerLink="view-http-employees">MANAGER HOME PAGE</a>
+            <li><a class="nav-link" routerLink="view-manager">MANAGER HOME PAGE</a>
             <li><a class="nav-link" routerLink="view-http-employees"><button type="button" class="btn btn-info" >All Employees</button></a></li>
-            <li><a class="nav-link" routerLink="view-all-pending-request"><button type="button" class="btn btn-success" >Approve/Deny</button></a></li>
+            <li><a class="nav-link" routerLink="show-http-reimb-expense"><button type="button" class="btn btn-success" >Approve/Deny</button></a></li>
             <li><a class="nav-link" routerLink="view-all-pending-request"> <button type="button" class="btn btn-info" >All Pending</button></a></li>
             <li><a class="nav-link" routerLink="view-all-solved-request">  <button type="button" class="btn btn-warning" >All Resolved</button></a></li>
             

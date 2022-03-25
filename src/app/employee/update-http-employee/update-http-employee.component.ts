@@ -39,6 +39,7 @@ export class UpdateHttpEmployeeComponent implements OnInit {
     this.employeeHttpService.updateEmployee(this.newEmployee).subscribe((response)=>{
       console.log(response);
       this.router.navigate(['employee-http-crud']);
+      console.log(response);
     });
   }
 
